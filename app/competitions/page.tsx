@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Award, Calendar, CheckCircle, Clock, Filter, Search, Trophy } from "lucide-react"
+import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 
 export default function CompetitionsPage() {
   return (
@@ -458,12 +459,9 @@ export default function CompetitionsPage() {
             Our expert coaches can help you prepare for and succeed in prestigious academic competitions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-primary-500 text-primary-foreground font-bold rounded-lg shadow-lg hover:bg-primary-600 transition-all duration-300"
-            >
+            <InteractiveHoverButton href="/contact" className="border-primary text-primary hover:text-white">
               Schedule a Consultation
-            </Link>
+            </InteractiveHoverButton>
             <Link
               href="/packages"
               className="px-8 py-4 bg-transparent border-2 border-primary-500 text-primary-500 font-bold rounded-lg shadow-lg hover:bg-primary-900/20 transition-all duration-300"

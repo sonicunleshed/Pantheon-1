@@ -1,26 +1,27 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Check, CheckCircle, HelpCircle } from "lucide-react"
+import { AdvancedButton } from "@/components/advanced-button"
 
 export default function PackagesPage() {
   return (
-    <div className="bg-background">
+    <div className="bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-black to-gray-900 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-r from-[#556b2f] to-[#6b8339] text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Tutoring Packages</h1>
-          <p className="text-xl max-w-3xl mx-auto mb-8 text-gray-300">
+          <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
             Customized tutoring solutions to help you achieve your academic goals
           </p>
         </div>
       </section>
 
       {/* Package Categories */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Choose Your Path to Success</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Choose Your Path to Success</h2>
+            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
               We offer specialized packages for different academic needs and goals
             </p>
           </div>
@@ -68,7 +69,7 @@ export default function PackagesPage() {
             ].map((category, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl border border-gray-800 overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-xl border border-[#d0d0c0] overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <Image
                   src={category.image || "/placeholder.svg"}
@@ -78,11 +79,11 @@ export default function PackagesPage() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-foreground">{category.title}</h3>
-                  <p className="text-gray-300 mb-4">{category.description}</p>
+                  <h3 className="text-xl font-bold mb-2 text-[#556b2f]">{category.title}</h3>
+                  <p className="text-[#3d4d21] mb-4">{category.description}</p>
                   <Link
                     href={category.link}
-                    className="inline-flex items-center text-primary-500 font-medium hover:text-primary-400"
+                    className="inline-flex items-center text-[#6b8339] font-medium hover:text-[#556b2f]"
                   >
                     View Packages <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
@@ -94,13 +95,11 @@ export default function PackagesPage() {
       </section>
 
       {/* Test Prep Packages */}
-      <section id="test-prep" className="py-16 bg-black">
+      <section id="test-prep" className="py-16 bg-gradient-to-b from-[#3d4d21]/90 to-[#556b2f]/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Standardized Test Prep Packages</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Comprehensive preparation for SAT, ACT, and AP exams
-            </p>
+            <h2 className="text-3xl font-bold mb-4 text-white">Standardized Test Prep Packages</h2>
+            <p className="text-lg text-white max-w-3xl mx-auto">Comprehensive preparation for SAT, ACT, and AP exams</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -159,61 +158,70 @@ export default function PackagesPage() {
             ].map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-card rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-primary-500" : "border-gray-800"} relative`}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#8fa069]" : "border-[#d0d0c0]"} relative`}
               >
                 {pkg.recommended && (
-                  <div className="bg-primary-500 text-primary-foreground text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
+                  <div className="bg-[#8fa069] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{pkg.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-[#556b2f]">{pkg.title}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-primary-500">{pkg.price}</span>
+                    <span className="text-4xl font-bold text-[#6b8339]">{pkg.price}</span>
                   </div>
-                  <p className="text-gray-300 mb-6">{pkg.description}</p>
+                  <p className="text-[#3d4d21] mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-primary-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#3d4d21]">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/contact"
-                    className={`w-full block text-center py-3 px-4 rounded-lg font-medium ${
-                      pkg.recommended
-                        ? "bg-primary-500 text-primary-foreground hover:bg-primary-600"
-                        : "bg-transparent border border-primary-500 text-primary-500 hover:bg-primary-900/20"
-                    }`}
-                  >
-                    {pkg.buttonText}
-                  </Link>
+                  <div className="flex justify-center">
+                    <AdvancedButton
+                      href="/contact"
+                      className={`${
+                        pkg.recommended
+                          ? "border-[#8fa069] bg-[#8fa069] text-white hover:text-white"
+                          : "border-[#6b8339] text-[#6b8339] hover:text-white"
+                      }`}
+                      variant={pkg.recommended ? "combined" : "interactive"}
+                    >
+                      {pkg.buttonText}
+                    </AdvancedButton>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 bg-card p-6 rounded-lg shadow-md border border-gray-800">
-            <h3 className="text-xl font-bold mb-4 text-foreground">Customize Your Test Prep Package</h3>
-            <p className="text-gray-300 mb-4">
+          <div className="mt-12 bg-white p-6 rounded-lg shadow-md border border-[#d0d0c0]">
+            <h3 className="text-xl font-bold mb-4 text-[#556b2f]">Customize Your Test Prep Package</h3>
+            <p className="text-[#3d4d21] mb-4">
               Need a different number of hours or specific features? We can create a custom package tailored to your
               needs.
             </p>
-            <Link href="/contact" className="button-primary inline-flex items-center">
-              Contact Us for Custom Packages <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
+            <div className="flex justify-center">
+              <AdvancedButton
+                href="/contact"
+                className="border-[#6b8339] text-[#6b8339] hover:text-white"
+                variant="interactive"
+              >
+                Contact Us for Custom Packages
+              </AdvancedButton>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Subject Tutoring */}
-      <section id="subject-tutoring" className="py-16 bg-background">
+      <section id="subject-tutoring" className="py-16 bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Subject Tutoring Packages</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Subject Tutoring Packages</h2>
+            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
               One-on-one instruction in specific academic subjects
             </p>
           </div>
@@ -273,45 +281,48 @@ export default function PackagesPage() {
             ].map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-card rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-primary-500" : "border-gray-800"} relative`}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#8fa069]" : "border-[#d0d0c0]"} relative`}
               >
                 {pkg.recommended && (
-                  <div className="bg-primary-500 text-primary-foreground text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
+                  <div className="bg-[#8fa069] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{pkg.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-[#556b2f]">{pkg.title}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-primary-500">{pkg.price}</span>
-                    <span className="text-gray-400">/month</span>
+                    <span className="text-4xl font-bold text-[#6b8339]">{pkg.price}</span>
+                    <span className="text-[#556b2f]">/month</span>
                   </div>
-                  <p className="text-gray-300 mb-6">{pkg.description}</p>
+                  <p className="text-[#3d4d21] mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-primary-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#3d4d21]">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/contact"
-                    className={`w-full block text-center py-3 px-4 rounded-lg font-medium ${
-                      pkg.recommended
-                        ? "bg-primary-500 text-primary-foreground hover:bg-primary-600"
-                        : "bg-transparent border border-primary-500 text-primary-500 hover:bg-primary-900/20"
-                    }`}
-                  >
-                    {pkg.buttonText}
-                  </Link>
+                  <div className="flex justify-center">
+                    <AdvancedButton
+                      href="/contact"
+                      className={`${
+                        pkg.recommended
+                          ? "border-[#8fa069] bg-[#8fa069] text-white hover:text-white"
+                          : "border-[#6b8339] text-[#6b8339] hover:text-white"
+                      }`}
+                      variant={pkg.recommended ? "combined" : "interactive"}
+                    >
+                      {pkg.buttonText}
+                    </AdvancedButton>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-6 text-center text-foreground">Available Subject Areas</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center text-[#556b2f]">Available Subject Areas</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {[
                 "Mathematics (All Levels)",
@@ -327,9 +338,9 @@ export default function PackagesPage() {
                 "Psychology",
                 "Environmental Science",
               ].map((subject, index) => (
-                <div key={index} className="bg-card rounded-lg p-4 flex items-center border border-gray-800">
-                  <Check className="h-5 w-5 text-primary-500 mr-2" />
-                  <span className="text-gray-300">{subject}</span>
+                <div key={index} className="bg-white rounded-lg p-4 flex items-center border border-[#d0d0c0]">
+                  <Check className="h-5 w-5 text-[#8fa069] mr-2" />
+                  <span className="text-[#3d4d21]">{subject}</span>
                 </div>
               ))}
             </div>
@@ -338,11 +349,11 @@ export default function PackagesPage() {
       </section>
 
       {/* College Counseling */}
-      <section id="college-counseling" className="py-16 bg-black">
+      <section id="college-counseling" className="py-16 bg-gradient-to-b from-[#3d4d21]/90 to-[#556b2f]/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">College Application Counseling</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-white">College Application Counseling</h2>
+            <p className="text-lg text-white max-w-3xl mx-auto">
               Comprehensive guidance through the college application process
             </p>
           </div>
@@ -408,37 +419,40 @@ export default function PackagesPage() {
             ].map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-card rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-primary-500" : "border-gray-800"} relative`}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#8fa069]" : "border-[#d0d0c0]"} relative`}
               >
                 {pkg.recommended && (
-                  <div className="bg-primary-500 text-primary-foreground text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
+                  <div className="bg-[#8fa069] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{pkg.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-[#556b2f]">{pkg.title}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-primary-500">{pkg.price}</span>
+                    <span className="text-4xl font-bold text-[#6b8339]">{pkg.price}</span>
                   </div>
-                  <p className="text-gray-300 mb-6">{pkg.description}</p>
+                  <p className="text-[#3d4d21] mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-primary-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#3d4d21]">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/contact"
-                    className={`w-full block text-center py-3 px-4 rounded-lg font-medium ${
-                      pkg.recommended
-                        ? "bg-primary-500 text-primary-foreground hover:bg-primary-600"
-                        : "bg-transparent border border-primary-500 text-primary-500 hover:bg-primary-900/20"
-                    }`}
-                  >
-                    {pkg.buttonText}
-                  </Link>
+                  <div className="flex justify-center">
+                    <AdvancedButton
+                      href="/contact"
+                      className={`${
+                        pkg.recommended
+                          ? "border-[#8fa069] bg-[#8fa069] text-white hover:text-white"
+                          : "border-[#6b8339] text-[#6b8339] hover:text-white"
+                      }`}
+                      variant={pkg.recommended ? "combined" : "interactive"}
+                    >
+                      {pkg.buttonText}
+                    </AdvancedButton>
+                  </div>
                 </div>
               </div>
             ))}
@@ -447,11 +461,11 @@ export default function PackagesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Frequently Asked Questions</h2>
+            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
               Answers to common questions about our tutoring packages
             </p>
           </div>
@@ -489,12 +503,12 @@ export default function PackagesPage() {
                   "Getting started is easy! Simply contact us to schedule a free consultation. During this consultation, we'll assess your needs, answer your questions, and recommend the best package for your goals. Once you select a package, we'll match you with the perfect tutor and schedule your first session.",
               },
             ].map((faq, index) => (
-              <div key={index} className="bg-card rounded-xl p-6 border border-gray-800">
+              <div key={index} className="bg-white rounded-xl p-6 border border-[#d0d0c0]">
                 <div className="flex items-start">
-                  <HelpCircle className="h-6 w-6 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <HelpCircle className="h-6 w-6 text-[#8fa069] mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-lg font-bold mb-2 text-foreground">{faq.question}</h3>
-                    <p className="text-gray-300">{faq.answer}</p>
+                    <h3 className="text-lg font-bold mb-2 text-[#556b2f]">{faq.question}</h3>
+                    <p className="text-[#3d4d21]">{faq.answer}</p>
                   </div>
                 </div>
               </div>
@@ -502,27 +516,32 @@ export default function PackagesPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-lg mb-4 text-gray-300">Have more questions? We're here to help!</p>
-            <Link href="/contact" className="button-primary">
-              Contact Us
-            </Link>
+            <p className="text-lg mb-4 text-[#3d4d21]">Have more questions? We're here to help!</p>
+            <div className="flex justify-center">
+              <AdvancedButton
+                href="/contact"
+                className="border-[#6b8339] text-[#6b8339] hover:text-white"
+                variant="interactive"
+              >
+                Contact Us
+              </AdvancedButton>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-black to-gray-900 text-white">
+      <section className="py-16 bg-gradient-to-r from-[#556b2f] to-[#6b8339] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Achieve Academic Excellence?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto text-gray-300">
+          <p className="text-xl mb-8 max-w-3xl mx-auto text-white">
             Schedule a free consultation to discuss your goals and find the perfect tutoring package for your needs.
           </p>
-          <Link
-            href="/contact"
-            className="px-8 py-4 bg-primary-500 text-primary-foreground font-bold rounded-lg shadow-lg hover:bg-primary-600 transition-all duration-300"
-          >
-            Book Your Free Consultation
-          </Link>
+          <div className="flex justify-center">
+            <AdvancedButton href="/contact" className="border-white text-white hover:text-white" variant="pulsating">
+              Book Your Free Consultation
+            </AdvancedButton>
+          </div>
         </div>
       </section>
     </div>

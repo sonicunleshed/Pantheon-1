@@ -9,50 +9,26 @@ const menuItems = [
   {
     label: "Home",
     href: "/",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
+    gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
+    iconColor: "text-[#e0e4d0]",
   },
   {
-    label: "Resources",
-    href: "/resources",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
-  },
-  {
-    label: "Research",
-    href: "/research",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
-  },
-  {
-    label: "Internships",
-    href: "/internships",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
-  },
-  {
-    label: "Volunteering",
-    href: "/volunteering",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
-  },
-  {
-    label: "Competitions",
-    href: "/competitions",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
+    label: "Consulting",
+    href: "/consulting",
+    gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
+    iconColor: "text-[#e0e4d0]",
   },
   {
     label: "Packages",
     href: "/packages",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
+    gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
+    iconColor: "text-[#e0e4d0]",
   },
   {
     label: "Sign In",
     href: "/login",
-    gradient: "radial-gradient(circle, rgba(250,204,21,0.15) 0%, rgba(234,179,8,0.06) 50%, rgba(202,138,4,0) 100%)",
-    iconColor: "text-primary-500",
+    gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
+    iconColor: "text-[#e0e4d0]",
   },
 ]
 
@@ -100,7 +76,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-background shadow-md shadow-black/20 sticky top-0 z-50">
+    <nav className="bg-[#f5f5f0] shadow-md shadow-[#e0e4d0]/50 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -112,12 +88,12 @@ const Navbar = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex md:items-center md:space-x-1">
             <motion.nav
-              className="p-1 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg relative overflow-hidden"
+              className="p-1 rounded-2xl bg-gradient-to-b from-[#f5f5f0]/80 to-[#f5f5f0]/40 backdrop-blur-lg relative overflow-hidden"
               initial="initial"
               whileHover="hover"
             >
               <motion.div
-                className="absolute -inset-2 bg-gradient-radial from-transparent via-primary-400/20 via-30% via-primary-400/10 via-60% to-transparent rounded-3xl z-0 pointer-events-none"
+                className="absolute -inset-2 bg-gradient-radial from-transparent via-[#e0e4d0]/30 via-30% via-[#e0e4d0]/20 via-60% to-transparent rounded-3xl z-0 pointer-events-none"
                 variants={navGlowVariants}
               />
               <ul className="flex items-center gap-1 relative z-10">
@@ -146,7 +122,7 @@ const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground hover:text-primary-400 transition-colors rounded-xl"
+                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#3d4d21] hover:text-[#556b2f] transition-colors rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -159,7 +135,7 @@ const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground hover:text-primary-400 transition-colors rounded-xl"
+                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#3d4d21] hover:text-[#556b2f] transition-colors rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -174,7 +150,7 @@ const Navbar = () => {
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary-400 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#3d4d21] hover:text-[#556b2f] focus:outline-none"
             >
               {isMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
@@ -194,7 +170,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary-400 hover:bg-muted"
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#3d4d21] hover:text-[#556b2f] hover:bg-[#e0e4d0]/30"
               >
                 {item.label}
               </Link>

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, BookOpen, Download, FileText, Video } from "lucide-react"
+import { InteractiveHoverButton } from "@/components/interactive-hover-button"
 
 export default function ResourcesPage() {
   return (
@@ -9,7 +10,7 @@ export default function ResourcesPage() {
       <section className="bg-gradient-to-r from-black to-gray-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Academic Resources</h1>
-          <p className="text-xl max-w-3xl mx-auto mb-8">
+          <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
             Access our comprehensive collection of study materials, practice tests, and guides to support your academic
             journey.
           </p>
@@ -41,7 +42,7 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-foreground">Study Guides</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
               Comprehensive guides to help you master key concepts and excel in your studies
             </p>
           </div>
@@ -97,7 +98,7 @@ export default function ResourcesPage() {
                     {resource.icon}
                     <h3 className="text-xl font-bold ml-2 text-foreground">{resource.title}</h3>
                   </div>
-                  <p className="text-gray-300 mb-4">{resource.description}</p>
+                  <p className="text-[#3d4d21] mb-4">{resource.description}</p>
                   <div className="flex justify-between items-center">
                     <Link
                       href="#"
@@ -124,7 +125,7 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-foreground">Practice Tests</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-white max-w-3xl mx-auto">
               Realistic practice tests to help you prepare for exams and assess your knowledge
             </p>
           </div>
@@ -181,7 +182,7 @@ export default function ResourcesPage() {
                       {test.difficulty}
                     </span>
                   </div>
-                  <p className="text-gray-300 mb-4">{test.description}</p>
+                  <p className="text-[#3d4d21] mb-4">{test.description}</p>
                   <div className="flex space-x-4">
                     <Link
                       href="#"
@@ -214,7 +215,7 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-foreground">Video Tutorials</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
               Watch our expert tutors explain complex concepts in easy-to-understand video lessons
             </p>
           </div>
@@ -281,7 +282,7 @@ export default function ResourcesPage() {
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg font-bold mb-2 text-foreground">{video.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{video.description}</p>
+                  <p className="text-[#3d4d21] text-sm mb-4">{video.description}</p>
                   <Link
                     href="#"
                     className="inline-flex items-center text-primary-500 font-medium hover:text-primary-400"
@@ -305,7 +306,7 @@ export default function ResourcesPage() {
       <section className="py-16 bg-gradient-to-r from-black to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Stay Updated with New Resources</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
+          <p className="text-xl mb-8 max-w-3xl mx-auto text-white">
             Subscribe to our newsletter to receive the latest study materials, practice tests, and educational
             resources.
           </p>
@@ -316,11 +317,11 @@ export default function ResourcesPage() {
                 placeholder="Enter your email"
                 className="px-4 py-3 rounded-lg flex-grow bg-background border border-gray-700 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
-              <button className="px-6 py-3 bg-primary-500 text-primary-foreground font-medium rounded-lg shadow-md hover:bg-primary-600 transition-all duration-300">
+              <InteractiveHoverButton className="border-primary text-primary hover:text-white">
                 Subscribe
-              </button>
+              </InteractiveHoverButton>
             </div>
-            <p className="text-sm mt-4 text-gray-300">We respect your privacy. Unsubscribe at any time.</p>
+            <p className="text-sm mt-4 text-white">We respect your privacy. Unsubscribe at any time.</p>
           </div>
         </div>
       </section>

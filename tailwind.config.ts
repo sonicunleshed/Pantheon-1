@@ -18,17 +18,17 @@ const config: Config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          50: "#fefce8",
-          100: "#fef9c3",
-          200: "#fef08a",
-          300: "#fde047",
-          400: "#facc15",
-          500: "#eab308",
-          600: "#ca8a04",
-          700: "#a16207",
-          800: "#854d0e",
-          900: "#713f12",
-          950: "#422006",
+          50: "#f7f9f0",
+          100: "#eef2e0",
+          200: "#e0e4d0", // very light olive green
+          300: "#c7d0ae",
+          400: "#aab987",
+          500: "#8fa069",
+          600: "#6b8339",
+          700: "#556b2f", // olive green
+          800: "#455a20",
+          900: "#3a4d1c",
+          950: "#171e0c",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -56,17 +56,17 @@ const config: Config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          50: "#fefce8",
-          100: "#fef9c3",
-          200: "#fef08a",
-          300: "#fde047",
-          400: "#facc15",
-          500: "#eab308",
-          600: "#ca8a04",
-          700: "#a16207",
-          800: "#854d0e",
-          900: "#713f12",
-          950: "#422006",
+          50: "#f7f9f0",
+          100: "#eef2e0",
+          200: "#e0e4d0", // very light olive green
+          300: "#c7d0ae",
+          400: "#aab987",
+          500: "#8fa069",
+          600: "#6b8339",
+          700: "#556b2f", // olive green
+          800: "#455a20",
+          900: "#3a4d1c",
+          950: "#171e0c",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -85,6 +85,9 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      animation: {
+        "pulse-ring": "pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
