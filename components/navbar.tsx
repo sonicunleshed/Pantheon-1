@@ -25,6 +25,12 @@ const menuItems = [
     iconColor: "text-[#e0e4d0]",
   },
   {
+    label: "Competitions",
+    href: "/competitions",
+    gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
+    iconColor: "text-[#e0e4d0]",
+  },
+  {
     label: "Sign In",
     href: "/login",
     gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
@@ -122,7 +128,7 @@ const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#3d4d21] hover:text-[#556b2f] transition-colors rounded-xl"
+                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#2a9d8f] hover:text-[#57c99b] transition-colors rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -135,7 +141,7 @@ const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#3d4d21] hover:text-[#556b2f] transition-colors rounded-xl"
+                          className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#2a9d8f] hover:text-[#57c99b] transition-colors rounded-xl"
                         >
                           {item.label}
                         </Link>
@@ -150,7 +156,7 @@ const Navbar = () => {
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[#3d4d21] hover:text-[#556b2f] focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#2a9d8f] hover:text-[#57c99b] focus:outline-none"
             >
               {isMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
@@ -170,7 +176,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-[#3d4d21] hover:text-[#556b2f] hover:bg-[#e0e4d0]/30"
+                className="block px-3 py-2 rounded-md text-base font-medium text-[#2a9d8f] hover:text-[#57c99b] hover:bg-[#e0e4d0]/30"
               >
                 {item.label}
               </Link>

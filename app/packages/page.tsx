@@ -7,7 +7,7 @@ export default function PackagesPage() {
   return (
     <div className="bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#556b2f] to-[#6b8339] text-white py-16 md:py-24">
+      <section className="bg-gradient-to-r from-[#2a9d8f] to-[#57c99b] text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Tutoring Packages</h1>
           <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
@@ -20,8 +20,8 @@ export default function PackagesPage() {
       <section className="py-16 bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Choose Your Path to Success</h2>
-            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#2a9d8f]">Choose Your Path to Success</h2>
+            <p className="text-lg text-[#2a9d8f] max-w-3xl mx-auto">
               We offer specialized packages for different academic needs and goals
             </p>
           </div>
@@ -79,11 +79,11 @@ export default function PackagesPage() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-[#556b2f]">{category.title}</h3>
-                  <p className="text-[#3d4d21] mb-4">{category.description}</p>
+                  <h3 className="text-xl font-bold mb-2 text-[#2a9d8f]">{category.title}</h3>
+                  <p className="text-[#2a9d8f] mb-4">{category.description}</p>
                   <Link
                     href={category.link}
-                    className="inline-flex items-center text-[#6b8339] font-medium hover:text-[#556b2f]"
+                    className="inline-flex items-center text-[#57c99b] font-medium hover:text-[#2a9d8f]"
                   >
                     View Packages <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
@@ -95,7 +95,7 @@ export default function PackagesPage() {
       </section>
 
       {/* Test Prep Packages */}
-      <section id="test-prep" className="py-16 bg-gradient-to-b from-[#3d4d21]/90 to-[#556b2f]/90">
+      <section id="test-prep" className="py-16 bg-gradient-to-b from-[#2a9d8f]/90 to-[#2a9d8f]/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-white">Standardized Test Prep Packages</h2>
@@ -158,24 +158,24 @@ export default function PackagesPage() {
             ].map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#8fa069]" : "border-[#d0d0c0]"} relative`}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#7DDBA3]" : "border-[#d0d0c0]"} relative`}
               >
                 {pkg.recommended && (
-                  <div className="bg-[#8fa069] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
+                  <div className="bg-[#7DDBA3] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-[#556b2f]">{pkg.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-[#2a9d8f]">{pkg.title}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-[#6b8339]">{pkg.price}</span>
+                    <span className="text-4xl font-bold text-[#57c99b]">{pkg.price}</span>
                   </div>
-                  <p className="text-[#3d4d21] mb-6">{pkg.description}</p>
+                  <p className="text-[#2a9d8f] mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-[#3d4d21]">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-[#7DDBA3] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#2a9d8f]">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -184,8 +184,8 @@ export default function PackagesPage() {
                       href="/contact"
                       className={`${
                         pkg.recommended
-                          ? "border-[#8fa069] bg-[#8fa069] text-white hover:text-white"
-                          : "border-[#6b8339] text-[#6b8339] hover:text-white"
+                          ? "border-[#7DDBA3] bg-[#7DDBA3] text-white hover:text-white"
+                          : "border-[#57c99b] text-[#57c99b] hover:text-white"
                       }`}
                       variant={pkg.recommended ? "combined" : "interactive"}
                     >
@@ -198,15 +198,15 @@ export default function PackagesPage() {
           </div>
 
           <div className="mt-12 bg-white p-6 rounded-lg shadow-md border border-[#d0d0c0]">
-            <h3 className="text-xl font-bold mb-4 text-[#556b2f]">Customize Your Test Prep Package</h3>
-            <p className="text-[#3d4d21] mb-4">
+            <h3 className="text-xl font-bold mb-4 text-[#2a9d8f]">Customize Your Test Prep Package</h3>
+            <p className="text-[#2a9d8f] mb-4">
               Need a different number of hours or specific features? We can create a custom package tailored to your
               needs.
             </p>
             <div className="flex justify-center">
               <AdvancedButton
                 href="/contact"
-                className="border-[#6b8339] text-[#6b8339] hover:text-white"
+                className="border-[#57c99b] text-[#57c99b] hover:text-white"
                 variant="interactive"
               >
                 Contact Us for Custom Packages
@@ -220,8 +220,8 @@ export default function PackagesPage() {
       <section id="subject-tutoring" className="py-16 bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Subject Tutoring Packages</h2>
-            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#2a9d8f]">Subject Tutoring Packages</h2>
+            <p className="text-lg text-[#2a9d8f] max-w-3xl mx-auto">
               One-on-one instruction in specific academic subjects
             </p>
           </div>
@@ -281,25 +281,25 @@ export default function PackagesPage() {
             ].map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#8fa069]" : "border-[#d0d0c0]"} relative`}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#7DDBA3]" : "border-[#d0d0c0]"} relative`}
               >
                 {pkg.recommended && (
-                  <div className="bg-[#8fa069] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
+                  <div className="bg-[#7DDBA3] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-[#556b2f]">{pkg.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-[#2a9d8f]">{pkg.title}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-[#6b8339]">{pkg.price}</span>
-                    <span className="text-[#556b2f]">/month</span>
+                    <span className="text-4xl font-bold text-[#57c99b]">{pkg.price}</span>
+                    <span className="text-[#2a9d8f]">/month</span>
                   </div>
-                  <p className="text-[#3d4d21] mb-6">{pkg.description}</p>
+                  <p className="text-[#2a9d8f] mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-[#3d4d21]">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-[#7DDBA3] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#2a9d8f]">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -308,8 +308,8 @@ export default function PackagesPage() {
                       href="/contact"
                       className={`${
                         pkg.recommended
-                          ? "border-[#8fa069] bg-[#8fa069] text-white hover:text-white"
-                          : "border-[#6b8339] text-[#6b8339] hover:text-white"
+                          ? "border-[#7DDBA3] bg-[#7DDBA3] text-white hover:text-white"
+                          : "border-[#57c99b] text-[#57c99b] hover:text-white"
                       }`}
                       variant={pkg.recommended ? "combined" : "interactive"}
                     >
@@ -322,7 +322,7 @@ export default function PackagesPage() {
           </div>
 
           <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-6 text-center text-[#556b2f]">Available Subject Areas</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center text-[#2a9d8f]">Available Subject Areas</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {[
                 "Mathematics (All Levels)",
@@ -339,8 +339,8 @@ export default function PackagesPage() {
                 "Environmental Science",
               ].map((subject, index) => (
                 <div key={index} className="bg-white rounded-lg p-4 flex items-center border border-[#d0d0c0]">
-                  <Check className="h-5 w-5 text-[#8fa069] mr-2" />
-                  <span className="text-[#3d4d21]">{subject}</span>
+                  <Check className="h-5 w-5 text-[#7DDBA3] mr-2" />
+                  <span className="text-[#2a9d8f]">{subject}</span>
                 </div>
               ))}
             </div>
@@ -349,7 +349,7 @@ export default function PackagesPage() {
       </section>
 
       {/* College Counseling */}
-      <section id="college-counseling" className="py-16 bg-gradient-to-b from-[#3d4d21]/90 to-[#556b2f]/90">
+      <section id="college-counseling" className="py-16 bg-gradient-to-b from-[#2a9d8f]/90 to-[#2a9d8f]/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-white">College Application Counseling</h2>
@@ -419,24 +419,24 @@ export default function PackagesPage() {
             ].map((pkg, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#8fa069]" : "border-[#d0d0c0]"} relative`}
+                className={`bg-white rounded-xl overflow-hidden shadow-md border ${pkg.recommended ? "border-[#7DDBA3]" : "border-[#d0d0c0]"} relative`}
               >
                 {pkg.recommended && (
-                  <div className="bg-[#8fa069] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
+                  <div className="bg-[#7DDBA3] text-white text-sm font-bold uppercase py-1 px-4 absolute top-0 right-0 rounded-bl-lg">
                     Most Popular
                   </div>
                 )}
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-[#556b2f]">{pkg.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-[#2a9d8f]">{pkg.title}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-[#6b8339]">{pkg.price}</span>
+                    <span className="text-4xl font-bold text-[#57c99b]">{pkg.price}</span>
                   </div>
-                  <p className="text-[#3d4d21] mb-6">{pkg.description}</p>
+                  <p className="text-[#2a9d8f] mb-6">{pkg.description}</p>
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-[#3d4d21]">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-[#7DDBA3] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#2a9d8f]">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -445,8 +445,8 @@ export default function PackagesPage() {
                       href="/contact"
                       className={`${
                         pkg.recommended
-                          ? "border-[#8fa069] bg-[#8fa069] text-white hover:text-white"
-                          : "border-[#6b8339] text-[#6b8339] hover:text-white"
+                          ? "border-[#7DDBA3] bg-[#7DDBA3] text-white hover:text-white"
+                          : "border-[#57c99b] text-[#57c99b] hover:text-white"
                       }`}
                       variant={pkg.recommended ? "combined" : "interactive"}
                     >
@@ -464,8 +464,8 @@ export default function PackagesPage() {
       <section className="py-16 bg-gradient-to-b from-[#f5f5f0] to-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Frequently Asked Questions</h2>
-            <p className="text-lg text-[#3d4d21] max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#2a9d8f]">Frequently Asked Questions</h2>
+            <p className="text-lg text-[#2a9d8f] max-w-3xl mx-auto">
               Answers to common questions about our tutoring packages
             </p>
           </div>
@@ -505,10 +505,10 @@ export default function PackagesPage() {
             ].map((faq, index) => (
               <div key={index} className="bg-white rounded-xl p-6 border border-[#d0d0c0]">
                 <div className="flex items-start">
-                  <HelpCircle className="h-6 w-6 text-[#8fa069] mr-3 flex-shrink-0 mt-0.5" />
+                  <HelpCircle className="h-6 w-6 text-[#7DDBA3] mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#556b2f]">{faq.question}</h3>
-                    <p className="text-[#3d4d21]">{faq.answer}</p>
+                    <h3 className="text-lg font-bold mb-2 text-[#2a9d8f]">{faq.question}</h3>
+                    <p className="text-[#2a9d8f]">{faq.answer}</p>
                   </div>
                 </div>
               </div>
@@ -516,11 +516,11 @@ export default function PackagesPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-lg mb-4 text-[#3d4d21]">Have more questions? We're here to help!</p>
+            <p className="text-lg mb-4 text-[#2a9d8f]">Have more questions? We're here to help!</p>
             <div className="flex justify-center">
               <AdvancedButton
                 href="/contact"
-                className="border-[#6b8339] text-[#6b8339] hover:text-white"
+                className="border-[#57c99b] text-[#57c99b] hover:text-white"
                 variant="interactive"
               >
                 Contact Us
@@ -531,7 +531,7 @@ export default function PackagesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#556b2f] to-[#6b8339] text-white">
+      <section className="py-16 bg-gradient-to-r from-[#2a9d8f] to-[#57c99b] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Achieve Academic Excellence?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto text-white">

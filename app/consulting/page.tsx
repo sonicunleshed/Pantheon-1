@@ -14,7 +14,7 @@ const consultants = [
     title: "Academic Excellence Consultant",
     specialty: "SAT/ACT Preparation",
     image: "/placeholder.svg?height=400&width=400",
-    background: "bg-[#556b2f]",
+    background: "bg-[#2a9d8f]",
     colors: [[224, 228, 208]],
     description:
       "Former Harvard admissions officer with 15+ years of experience helping students achieve top scores on standardized tests.",
@@ -29,7 +29,7 @@ const consultants = [
     title: "College Application Strategist",
     specialty: "Essay Writing & Application Review",
     image: "/placeholder.svg?height=400&width=400",
-    background: "bg-[#6b8339]",
+    background: "bg-[#57c99b]",
     colors: [[224, 228, 208]],
     description:
       "Expert in crafting compelling college application narratives that help students stand out to admissions committees.",
@@ -44,7 +44,7 @@ const consultants = [
     title: "STEM Education Specialist",
     specialty: "Research Project Development",
     image: "/placeholder.svg?height=400&width=400",
-    background: "bg-[#8fa069]",
+    background: "bg-[#7DDBA3]",
     colors: [[224, 228, 208]],
     description: "Guides students in developing impressive research projects and preparing for careers in STEM fields.",
     achievements: [
@@ -59,10 +59,10 @@ export default function ConsultingPage() {
   return (
     <div className="bg-[#f5f5f0]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#f5f5f0] to-[#eaeae0] text-[#556b2f] py-16 md:py-24">
+      <section className="bg-gradient-to-r from-[#2a9d8f] to-[#eaeae0] text-[#2a9d8f] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Expert Academic Consultants</h1>
-          <p className="text-xl max-w-3xl mx-auto text-[#556b2f] mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Expert Academic Consultants</h1>
+          <p className="text-xl max-w-3xl mx-auto text-[#2a9d8f] mb-8">
             Work with our team of specialized consultants to achieve your academic and career goals.
           </p>
           <AdvancedButton
@@ -79,8 +79,8 @@ export default function ConsultingPage() {
       <section id="consultants" className="py-16 bg-[#f5f5f0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">Our Expert Consultants</h2>
-            <p className="text-lg text-[#556b2f] max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#2a9d8f]">Our Expert Consultants</h2>
+            <p className="text-lg text-[#2a9d8f] max-w-3xl mx-auto">
               Each consultant brings specialized expertise to help you excel in your academic journey.
             </p>
           </div>
@@ -104,8 +104,8 @@ export default function ConsultingPage() {
       <section className="py-16 bg-[#eaeae0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-[#556b2f]">How Our Consultants Help</h2>
-            <p className="text-lg text-[#556b2f] max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-[#2a9d8f]">How Our Consultants Help</h2>
+            <p className="text-lg text-[#2a9d8f] max-w-3xl mx-auto">
               Discover the specialized services our consultants provide to help you achieve your goals.
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function ConsultingPage() {
               className={`mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
             >
               <div className="relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#556b2f] to-[#8fa069] rounded-lg blur opacity-75"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#2a9d8f] to-[#7DDBA3] rounded-lg blur opacity-75"></div>
                 <div className="relative bg-[#f5f5f0] rounded-lg overflow-hidden shadow-xl p-6">
                   <div className="flex items-center mb-6">
                     <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-[#e0e4d0] shadow-lg">
@@ -128,24 +128,24 @@ export default function ConsultingPage() {
                       />
                     </div>
                     <div className="ml-6">
-                      <h3 className="text-2xl font-bold text-[#556b2f]">{consultant.name}</h3>
-                      <p className="text-[#6b8339]">{consultant.title}</p>
-                      <p className="text-[#8fa069] font-medium">{consultant.specialty}</p>
+                      <h3 className="text-2xl font-bold text-[#2a9d8f]">{consultant.name}</h3>
+                      <p className="text-[#57c99b]">{consultant.title}</p>
+                      <p className="text-[#7DDBA3] font-medium">{consultant.specialty}</p>
                     </div>
                   </div>
-                  <p className="text-[#556b2f] mb-6">{consultant.description}</p>
+                  <p className="text-[#2a9d8f] mb-6">{consultant.description}</p>
                   <div className="space-y-2">
                     {consultant.achievements.map((achievement, i) => (
                       <div key={i} className="flex items-start">
-                        <Award className="h-5 w-5 text-[#8fa069] mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-[#556b2f]">{achievement}</span>
+                        <Award className="h-5 w-5 text-[#7DDBA3] mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-[#2a9d8f]">{achievement}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-[#556b2f]">
+                <h3 className="text-2xl font-bold mb-6 text-[#2a9d8f]">
                   {index === 0
                     ? "Test Preparation Excellence"
                     : index === 1
@@ -156,7 +156,7 @@ export default function ConsultingPage() {
                   {[1, 2, 3].map((item) => (
                     <div key={item} className="flex">
                       <div className="flex-shrink-0">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#e0e4d0] text-[#556b2f]">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#e0e4d0] text-[#2a9d8f]">
                           {index === 0 ? (
                             <Star className="h-6 w-6" />
                           ) : index === 1 ? (
@@ -167,7 +167,7 @@ export default function ConsultingPage() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-xl font-semibold text-[#556b2f]">
+                        <h4 className="text-xl font-semibold text-[#2a9d8f]">
                           {index === 0
                             ? item === 1
                               ? "Personalized Test Strategies"
@@ -186,7 +186,7 @@ export default function ConsultingPage() {
                                   ? "STEM Competition Coaching"
                                   : "Scientific Writing Support"}
                         </h4>
-                        <p className="mt-2 text-[#556b2f]">
+                        <p className="mt-2 text-[#2a9d8f]">
                           {index === 0
                             ? item === 1
                               ? "Customized study plans based on your learning style and strengths."
@@ -225,7 +225,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#556b2f] to-[#6b8339] text-white">
+      <section className="py-16 bg-gradient-to-r from-[#2a9d8f] to-[#57c99b] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Work with an Expert?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
@@ -250,10 +250,10 @@ const ConsultantCard = ({ name, title, image, background, colors }) => {
       onMouseLeave={() => setHovered(false)}
       className="border border-[#d0d0c0] group/canvas-card flex items-center justify-center max-w-sm w-full mx-auto p-4 relative h-[30rem] bg-[#f5f5f0]"
     >
-      <Icon className="absolute h-6 w-6 -top-3 -left-3 text-[#556b2f]" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-[#556b2f]" />
-      <Icon className="absolute h-6 w-6 -top-3 -right-3 text-[#556b2f]" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-[#556b2f]" />
+      <Icon className="absolute h-6 w-6 -top-3 -left-3 text-[#2a9d8f]" />
+      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-[#2a9d8f]" />
+      <Icon className="absolute h-6 w-6 -top-3 -right-3 text-[#2a9d8f]" />
+      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-[#2a9d8f]" />
 
       <AnimatePresence>
         {hovered && (
@@ -271,16 +271,16 @@ const ConsultantCard = ({ name, title, image, background, colors }) => {
             <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover" />
           </div>
         </div>
-        <h2 className="text-[#556b2f] text-2xl opacity-100 group-hover/canvas-card:opacity-100 relative z-10 mt-4 font-bold group-hover/canvas-card:text-white transition duration-200 text-center">
+        <h2 className="text-[#2a9d8f] text-2xl opacity-100 group-hover/canvas-card:opacity-100 relative z-10 mt-4 font-bold group-hover/canvas-card:text-white transition duration-200 text-center">
           {name}
         </h2>
-        <p className="text-[#6b8339] opacity-100 group-hover/canvas-card:opacity-100 relative z-10 group-hover/canvas-card:text-white/90 transition duration-200 text-center mt-2">
+        <p className="text-[#57c99b] opacity-100 group-hover/canvas-card:opacity-100 relative z-10 group-hover/canvas-card:text-white/90 transition duration-200 text-center mt-2">
           {title}
         </p>
         <div className="mt-4 opacity-0 group-hover/canvas-card:opacity-100 transition duration-200 text-center">
           <AdvancedButton
             href="/contact"
-            className="px-4 py-2 bg-[#f5f5f0] text-[#556b2f] rounded-md hover:bg-white transition-all duration-300"
+            className="px-4 py-2 bg-[#f5f5f0] text-[#2a9d8f] rounded-md hover:bg-white transition-all duration-300"
             variant="interactive"
           >
             Book Consultation
