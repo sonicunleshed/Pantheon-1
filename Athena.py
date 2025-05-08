@@ -12,6 +12,8 @@ CORS(app)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+student_context = {}
+
 SYSTEM_PROMPT = """
 You are an AI college admissions coach working at our company Pantheon you have looked at hundreds of thousands of resumes. Your job is to analyze a student's resume and break it down into six categories:
 1. Passion Projects
@@ -35,10 +37,36 @@ When the user asks a question, answer it clearly and helpfully, but always follo
 
 @app.route("/api/chat", methods=["POST"])
 def chat():
-    user_msg = request.json.get("message", "")
+    data = request.get_json()
+    user_msg = data.get("message", "")
+    user_info = student_context
+
+    # Build a personalized context summary from user_info
+    user_context_parts = []
+    if "passion_projects" in user_info:
+        user_context_parts.append(f"Passion Projects: {user_info['passion_projects']}")
+    if "internships" in user_info:
+        user_context_parts.append(f"Internships: {user_info['internships']}")
+    if "research_projects" in user_info:
+        user_context_parts.append(f"Research Projects: {user_info['research_projects']}")
+    if "essays" in user_info:
+        user_context_parts.append(f"Essays: {user_info['essays']}")
+    if "sat/act_scores" in user_info:
+        user_context_parts.append(f"SAT/ACT Scores: {user_info['sat/act_scores']}")
+    if "competitions" in user_info:
+        user_context_parts.append(f"Competitions: {user_info['competitions']}")
+    if "test_scores" in user_info:
+        user_context_parts.append(f"Test Scores: {user_info['test_scores']}")
+    if "intended_major" in user_info:
+        user_context_parts.append(f"Intended Major: {user_info['intended_major']}")
+
+    if "raw_resume_text" in student_context:
+        user_context_summary = "The student's resume is as follows:\n" + student_context["raw_resume_text"]
+    else:
+        user_context_summary = "The following is additional background information about the student:\n" + "\n".join(user_context_parts)
 
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": SYSTEM_PROMPT + "\n\n" + user_context_summary},
         {"role": "user", "content": user_msg}
     ]
 
@@ -55,6 +83,7 @@ def chat():
 
 # --- Resume PDF Analysis Endpoint ---
 import tempfile
+import re
 
 def extract_text_from_pdf(pdf_path):
     with fitz.open(pdf_path) as doc:
@@ -80,12 +109,19 @@ def analyze_resume():
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
         file.save(tmp.name)
         print(f"Saved file to temp path: {tmp.name}")
-        resume_text = extract_text_from_pdf(tmp.name)
+        new_resume_text = extract_text_from_pdf(tmp.name)
         os.unlink(tmp.name)
 
     print("Extracted resume text. Sending to OpenAI...")
 
+    # Only clear context if new file content is different from current stored content
+    if student_context.get("raw_resume") != new_resume_text:
+        student_context.clear()
+        student_context["raw_resume"] = new_resume_text
+
     try:
+        resume_text = new_resume_text
+        student_context["raw_resume_text"] = resume_text
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
@@ -94,8 +130,59 @@ def analyze_resume():
             ]
         )
         response = completion.choices[0].message.content
+
+        # Extract both descriptions and ratings for each section more robustly
+        sections = ["Passion Projects", "Internships", "Research Projects", "Essays", "SAT/ACT Scores", "Competitions"]
+        for i, section in enumerate(sections):
+            section_key = section.lower().replace(" ", "_")
+            # Lookahead for the next section or SCORES block to isolate content
+            next_header = sections[i + 1] if i + 1 < len(sections) else "SCORES"
+            pattern = rf"\*\*{section}\*\*\s*(.*?)(?=\*\*{next_header}\*\*|\bSCORES\b)"
+            match = re.search(pattern, response, re.DOTALL | re.IGNORECASE)
+            if match:
+                content = match.group(1).strip()
+                student_context[section_key] = content
+                # Try extracting rating from within the section
+                rating_match = re.search(r"\*\*Rating\*\*:?\s*([★☆]+)", content)
+                if rating_match:
+                    student_context[section_key + "_rating"] = rating_match.group(1).strip()
+
+        # Extract SAT/ACT Score separately if needed
+        sat_match = re.search(r"SAT Score.*?(\d{3,4})", response)
+        if sat_match:
+            student_context["test_scores"] = f"SAT: {sat_match.group(1)}"
+
+        # Attempt to capture intended major if present
+        major_match = re.search(r"(?i)(intended major|field of study):?\s*(.+)", response)
+        if major_match:
+            student_context["intended_major"] = major_match.group(2).strip()
+
+        print("Stored student context:")
+        for key, value in student_context.items():
+            print(f"{key}: {value}")
+
+        # Prepare structured ratings for radar chart
+        scores = {
+            "passion_projects_rating": len(student_context.get("passion_projects_rating", "")),
+            "internships_rating": len(student_context.get("internships_rating", "")),
+            "research_projects_rating": len(student_context.get("research_projects_rating", "")),
+            "essays_rating": len(student_context.get("essays_rating", "")),
+            "sat_act_scores_rating": len(student_context.get("sat_act_scores_rating", "")),
+            "competitions_rating": len(student_context.get("competitions_rating", ""))
+        }
+
+        # Convert star ratings to numeric values if available
+        for key in scores:
+            rating_key = key.replace("_rating", "") + "_rating"
+            stars = student_context.get(rating_key, "")
+            numeric = stars.count("★")
+            scores[key] = numeric
+
+        # Compute average score
+        average_score = round(sum(scores.values()) / len(scores)) if scores else 0
+
         print("Analysis complete. Returning response.")
-        return jsonify({"message": response})
+        return jsonify({"message": response, "scores": scores, "average": average_score})
     except Exception as e:
         print(f"OpenAI error: {e}")
         return jsonify({"error": str(e)}), 500
@@ -105,6 +192,40 @@ def analyze_resume():
 @app.route("/", methods=["GET"])
 def home():
     return "Athena API is running!", 200
+
+@app.route("/api/report", methods=["GET"])
+def generate_report():
+    from fpdf import FPDF
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", "B", 16)
+    pdf.cell(0, 10, "Athena Resume Evaluation Report", ln=True, align='C')
+    pdf.ln(10)
+
+    pdf.set_font("Arial", "", 12)
+    numeric_scores = [v for k, v in student_context.items() if k.endswith("_rating") and isinstance(v, int)]
+    avg_score = round(sum(numeric_scores) / len(numeric_scores), 1) if numeric_scores else 0.0
+    pdf.cell(0, 10, f"Average Score: {avg_score}/5", ln=True)
+    pdf.ln(5)
+
+    # Output each section's rating and brief summary
+    sections = ["passion_projects", "internships", "research_projects", "essays", "sat_act_scores", "competitions"]
+    for section in sections:
+        pdf.set_font("Arial", "B", 12)
+        pdf.cell(0, 10, section.replace("_", " ").title(), ln=True)
+        pdf.set_font("Arial", "", 11)
+        content = student_context.get(section, "No data available")
+        rating = student_context.get(f"{section}_rating", "No rating")
+        pdf.multi_cell(0, 8, f"Rating: {rating}\nSummary: {content}")
+        pdf.ln(3)
+
+    # Save to temporary file and return
+    report_path = os.path.join(tempfile.gettempdir(), "athena_score_report.pdf")
+    pdf.output(report_path)
+
+    from flask import send_file
+    return send_file(report_path, as_attachment=True, download_name="Athena_Score_Report.pdf")
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5050)
