@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Pantheon | Expert Tutoring Services",
   description: "Premium tutoring services with expert tutors scoring 1560+ on SAT and 35+ on ACT",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

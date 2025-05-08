@@ -31,6 +31,12 @@ const menuItems = [
     iconColor: "text-[#e0e4d0]",
   },
   {
+    label: "Athena",
+    href: "/athena",
+    gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
+    iconColor: "text-[#e0e4d0]",
+  },
+  {
     label: "Sign In",
     href: "/login",
     gradient: "radial-gradient(circle, rgba(224,228,208,0.3) 0%, rgba(224,228,208,0.15) 50%, rgba(224,228,208,0) 100%)",
