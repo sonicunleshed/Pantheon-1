@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default function AthenaPage() {
   const [messages, setMessages] = useState([
@@ -103,7 +104,9 @@ export default function AthenaPage() {
         {messages.map((msg, i) => (
           <div key={i} className={msg.role === 'user' ? 'text-right' : 'text-left'}>
             <div className="p-2 rounded bg-gray-100 dark:bg-gray-800">
-              <p style={{ whiteSpace: 'pre-wrap' }}>{msg.content}</p>
+              <div className="prose prose-sm dark:prose-invert">
+                <ReactMarkdown>{msg.content}</ReactMarkdown>
+              </div>
             </div>
           </div>
         ))}
